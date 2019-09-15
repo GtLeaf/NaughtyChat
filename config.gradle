@@ -1,0 +1,95 @@
+
+project.ext {
+    setDefaultConfig = {extensions ->
+        extensions.android {
+            compileSdkVersion 28
+            defaultConfig {
+                minSdkVersion 14
+                targetSdkVersion 28
+                versionCode 1
+                versionName "1.0"
+                testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+            }
+            compileOptions {
+                sourceCompatibility = 1.8
+                targetCompatibility = 1.8
+            }
+            buildToolsVersion = '28.0.3'
+        }
+    }
+}
+ext {
+    //引用类库的版本号
+    dependVersion = [
+            kotlin_version     : '1.3.41',
+            support_version    : '28.1.1',
+            databinding_version: '3.1.4',
+            retrofit2_version  : '2.3.0',
+            gson_version       : '2.8.5',
+            rxandroid_version  : '2.1.0',
+            rxjava_version     : '2.2.2',
+            stetho_version     : '1.5.0',
+            room_version       : '1.1.1',
+            okhttp_version     : '3.11.0',
+            retrofit2_scalars_version  : '2.5.0',
+            recyclerview       : '27.1.1',
+            epoxy_version      : '3.2',
+            paging_version     : '1.0.1'
+    ]
+
+    //*************************类库maven地址**************************
+    kotlin_base = [kotlin_stdlib_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version"
+    ]
+    supportLibs = [
+            design      : "com.android.support:design:$dependVersion.support_version",
+            appcompat_v7: "com.android.support:appcompat-v7:$dependVersion.support_version",
+            constraint  : 'com.android.support.constraint:constraint-layout:1.1.3']
+
+    databindingLibs = [databinding: "com.android.databinding:compiler:$dependVersion.databinding_version"]
+
+    retrofit = [
+            retrofit           : "com.squareup.retrofit2:retrofit:$dependVersion.retrofit2_version",
+            retrofit_converters: "com.squareup.retrofit2:converter-gson:$dependVersion.retrofit2_version",
+            retrofit_converters_scalars: "com.squareup.retrofit2:converter-scalars:$dependVersion.retrofit2_scalars_version",
+            retrofit_adapters  : "com.squareup.retrofit2:adapter-rxjava2:$dependVersion.retrofit2_version"]
+
+    gson = [gson: "com.google.code.gson:gson:$dependVersion.gson_version"]
+
+    rxandroid = [rxandroid: "io.reactivex.rxjava2:rxandroid:$dependVersion.rxandroid_version"]
+
+    rxjava = [rxjava: "io.reactivex.rxjava2:rxjava:$dependVersion.rxjava_version"]
+
+    stetho = [stetho       : "com.facebook.stetho:stetho:$dependVersion.stetho_version",
+              okhttp_stetho: "com.facebook.stetho:stetho-okhttp3:$dependVersion.stetho_version"]
+
+
+    roomLib = [room_runtime: "android.arch.persistence.room:runtime:$dependVersion.room_version",
+               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version",
+
+    ]
+    room = [room: "android.arch.persistence.room:compiler:$dependVersion.room_version"]
+
+    recyclerView = [recyclerview: "com.android.support:recyclerview-v7:$dependVersion.recyclerview"]
+
+    epoxy = [epoxy: "com.airbnb.android:epoxy:$dependVersion.epoxy_version"]
+    epoxyProcessor = [epoxy: "com.airbnb.android:epoxy-processor:$dependVersion.epoxy_version"]
+
+    okhttpLibs = [okhttp   : "com.squareup.okhttp3:okhttp:$dependVersion.okhttp_version",
+                  okhttplog: "com.squareup.okhttp3:logging-interceptor:$dependVersion.okhttp_version"]
+
+    paging = [paging: "android.arch.paging:runtime:$dependVersion.paging_version"]
+    //********************项目依赖列表**********************
+    kotlinDeps = [kotlin_base.values()]
+    supportDeps = [supportLibs.values()]
+    databindingDeps = [databindingLibs.values()]
+    retrofitDeps = [retrofit.values(), gson.values()]
+    rxDeps = [rxandroid.values(), rxjava.values()]
+    stethoDeps = [stetho.values()]
+    roomDeps = [roomLib.values()]
+    roomDep = [room.values()]
+    okhttpDep = [okhttpLibs.values()]
+    recyclerViewDep = [recyclerView.values()]
+    pagingDep = [paging.values()]
+    epoxyDep = [epoxy.values()] //还不能用
+    epoxyProcessorDep = [epoxyProcessor.values()] //还不能用
+}

@@ -1,0 +1,2 @@
+include ':app', ':test', ':im'
+rootProject.name='NaughtyChat'
