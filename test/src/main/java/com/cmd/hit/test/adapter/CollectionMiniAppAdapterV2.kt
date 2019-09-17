@@ -28,7 +28,7 @@ class CollectionMiniAppAdapterV2
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
             TYPE_TITLE -> (holder as TitleViewHolder).bind(RECENTLY_USED_TITLE)
-            TYPE_MINIAPP -> (holder as TitleViewHolder).bind(MY_COLLECTION_POSITION)
+            TYPE_MINIAPP -> (holder as TitleViewHolder).bind(MY_COLLECTION_TITLE)
 
         }
     }
