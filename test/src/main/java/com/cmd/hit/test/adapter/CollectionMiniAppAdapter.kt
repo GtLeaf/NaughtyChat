@@ -8,11 +8,10 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cmd.hit.test.R
-import com.cmd.hit.test.itemView.MiniAppModel
-import kotlinx.android.synthetic.main.miniapp_item_view.view.*
+import com.cmd.hit.test.itemView.MicroAppModel
 
 class CollectionMiniAppAdapter
-    : PagedListAdapter<MiniAppModel, CollectionMiniAppAdapter.ViewHolder>(mDiffCallback) {
+    : PagedListAdapter<MicroAppModel, CollectionMiniAppAdapter.ViewHolder>(mDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent)
@@ -27,17 +26,17 @@ class CollectionMiniAppAdapter
         private var ivMiniAppIcon: ImageView = itemView.findViewById(R.id.iv_miniapp_icon)
         private var tvMiniAppName: TextView = itemView.findViewById(R.id.tv_miniapp_name)
 
-        fun bind(miniAppModel: MiniAppModel){
-            tvMiniAppName.text = miniAppModel.miniAppName
+        fun bind(microAppModel: MicroAppModel){
+            tvMiniAppName.text = microAppModel.miniAppName
         }
     }
 
-    class MiniAppItemCallback : DiffUtil.ItemCallback<MiniAppModel>() {
-        override fun areItemsTheSame(oldItem: MiniAppModel, newItem: MiniAppModel): Boolean {
+    class MiniAppItemCallback : DiffUtil.ItemCallback<MicroAppModel>() {
+        override fun areItemsTheSame(oldItem: MicroAppModel, newItem: MicroAppModel): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: MiniAppModel, newItem: MiniAppModel): Boolean {
+        override fun areContentsTheSame(oldItem: MicroAppModel, newItem: MicroAppModel): Boolean {
             return oldItem == newItem
         }
     }

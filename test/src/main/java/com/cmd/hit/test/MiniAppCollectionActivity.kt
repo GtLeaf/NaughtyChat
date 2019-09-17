@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cmd.hit.test.controller.MiniAppCollectionController
-import com.cmd.hit.test.itemView.MiniAppModel
+import com.cmd.hit.test.itemView.MicroAppModel
 import kotlinx.android.synthetic.main.activity_mini_app_collection.*
 import kotlinx.android.synthetic.main.search_bar.*
 
@@ -35,9 +35,9 @@ class MiniAppCollectionActivity : AppCompatActivity() {
         }
     }
 
-    fun getMiniAppModel(number: Int) = ArrayList<MiniAppModel>().apply {
+    fun getMiniAppModel(number: Int) = ArrayList<MicroAppModel>().apply {
         for (i in 0..number) {
-            this.add(MiniAppModel(i.toLong(), "iconUrl:$i", "name:$i"))
+            this.add(MicroAppModel(i.toLong(), "iconUrl:$i", "name:$i"))
         }
     }
 

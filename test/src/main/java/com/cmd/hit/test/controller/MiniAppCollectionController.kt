@@ -2,11 +2,11 @@ package com.cmd.hit.test.controller
 
 import com.airbnb.epoxy.EpoxyController
 import com.cmd.hit.test.itemView.MiniAppItemViewModel_
-import com.cmd.hit.test.itemView.MiniAppModel
+import com.cmd.hit.test.itemView.MicroAppModel
 
 class MiniAppCollectionController : EpoxyController() {
 
-    var miniApps = ArrayList<MiniAppModel>()
+    var miniApps = ArrayList<MicroAppModel>()
     set(value) {
         field = value
         requestModelBuild()

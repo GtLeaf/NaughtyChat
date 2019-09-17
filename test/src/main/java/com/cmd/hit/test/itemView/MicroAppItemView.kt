@@ -12,7 +12,7 @@ import com.cmd.hit.test.R
 import kotlinx.android.synthetic.main.miniapp_item_view.view.*
 
 @ModelView(autoLayout = ModelView.Size.WRAP_WIDTH_WRAP_HEIGHT)
-class MiniAppItemView @JvmOverloads constructor (
+class MicroAppItemView @JvmOverloads constructor (
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
