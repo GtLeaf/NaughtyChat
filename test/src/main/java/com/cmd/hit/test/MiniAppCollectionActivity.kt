@@ -62,7 +62,7 @@ class MiniAppCollectionActivity : AppCompatActivity() {
         collectionController = MiniAppCollectionController()
         erv_my_collection.adapter = collectionController.adapter
         collectionController.requestModelBuild()
-        collectionController.miniApps = getMiniAppModel(10)
+        collectionController.miniApps = getMiniAppModel(30)
     }
 
     fun initMyCollectionRecyclerView (){

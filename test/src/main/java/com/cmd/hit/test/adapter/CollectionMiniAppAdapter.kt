@@ -40,7 +40,6 @@ class CollectionMiniAppAdapter
         override fun areContentsTheSame(oldItem: MiniAppModel, newItem: MiniAppModel): Boolean {
             return oldItem == newItem
         }
-
     }
 
     companion object{
