@@ -27,9 +27,9 @@ android {
     sourceSets {
         main{
             if (isNeedImModule.toBoolean()) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
             } else {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             }
         }
     }
@@ -44,6 +44,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.jude:easyrecyclerview:4.2.3'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.jakewharton:butterknife:7.0.1'
+    annotationProcessor 'com.jakewharton:butterknife:7.0.1'
 
     implementation project.ext.rxDeps
     implementation project.ext.retrofitDeps

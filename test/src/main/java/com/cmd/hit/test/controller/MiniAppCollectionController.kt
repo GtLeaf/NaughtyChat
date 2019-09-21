@@ -1,7 +1,7 @@
 package com.cmd.hit.test.controller
 
 import com.airbnb.epoxy.EpoxyController
-import com.cmd.hit.test.itemView.MiniAppItemViewModel_
+import com.cmd.hit.test.itemView.MicroAppItemViewModel_
 import com.cmd.hit.test.itemView.MicroAppModel
 
 class MiniAppCollectionController : EpoxyController() {
@@ -20,7 +20,7 @@ class MiniAppCollectionController : EpoxyController() {
 
     override fun buildModels() {
         for (it in miniApps) {
-            MiniAppItemViewModel_()
+            MicroAppItemViewModel_()
                 .id("miniApp", it.id)
                 .imgUrl(it.iconUrl)
                 .name(it.miniAppName)

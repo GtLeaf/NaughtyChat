@@ -28,9 +28,9 @@ android {
     sourceSets {
         main {
             if (isNeedTestModule.toBoolean()) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
             } else {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             }
         }
     }
@@ -49,6 +49,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.0'
     ext.epoxyVersion = '3.2.0'
     implementation("com.airbnb.android:epoxy:$epoxyVersion") {
         exclude group: 'com.android.support'
