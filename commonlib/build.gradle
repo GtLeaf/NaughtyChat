@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: "${rootProject.rootDir}/config.gradle"
 
 android {
@@ -17,7 +18,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+    generateStubs = true
 }
 
 dependencies {
@@ -34,4 +41,6 @@ dependencies {
     implementation project.ext.okhttpDep
     implementation project.ext.supportDeps
     implementation project.ext.kotlinDeps
+    implementation project.ext.arouter_api
+    implementation project.ext.arouter_compiler
 }

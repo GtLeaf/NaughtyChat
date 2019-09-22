@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidProject-NaughtyChat.iml" filepath="$PROJECT_DIR$/AndroidProject-NaughtyChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/AndroidProject-NaughtyChat-app.iml" filepath="$PROJECT_DIR$/app/AndroidProject-NaughtyChat-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/im/AndroidProject-NaughtyChat-im.iml" filepath="$PROJECT_DIR$/im/AndroidProject-NaughtyChat-im.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/AndroidProject-NaughtyChat-test.iml" filepath="$PROJECT_DIR$/test/AndroidProject-NaughtyChat-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/NaughtyChat.iml" filepath="$PROJECT_DIR$/NaughtyChat.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/NaughtyChat-app.iml" filepath="$PROJECT_DIR$/app/NaughtyChat-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonlib/NaughtyChat-commonlib.iml" filepath="$PROJECT_DIR$/commonlib/NaughtyChat-commonlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/im/NaughtyChat-im.iml" filepath="$PROJECT_DIR$/im/NaughtyChat-im.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/NaughtyChat-test.iml" filepath="$PROJECT_DIR$/test/NaughtyChat-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project-NaughtyChat.iml" filepath="$PROJECT_DIR$/Project-NaughtyChat.iml" />

@@ -34,7 +34,9 @@ ext {
             retrofit2_scalars_version  : '2.5.0',
             recyclerview       : '27.1.1',
             epoxy_version      : '3.2',
-            paging_version     : '1.0.1'
+            paging_version     : '1.0.1',
+            arouter_api        : '1.5.0',
+            arouter_compiler   : '1.2.2'
     ]
 
     //*************************类库maven地址**************************
@@ -78,6 +80,11 @@ ext {
                   okhttplog: "com.squareup.okhttp3:logging-interceptor:$dependVersion.okhttp_version"]
 
     paging = [paging: "android.arch.paging:runtime:$dependVersion.paging_version"]
+
+    arouter_api = [arouter_api: "com.alibaba:arouter-api:$dependVersion.arouter_api"]
+
+    arouter_compiler = [arouter_compiler: "com.alibaba:arouter-compiler:$dependVersion.arouter_compiler"]
+
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
     supportDeps = [supportLibs.values()]
@@ -90,6 +97,9 @@ ext {
     okhttpDep = [okhttpLibs.values()]
     recyclerViewDep = [recyclerView.values()]
     pagingDep = [paging.values()]
+    arouter_api = [arouter_api.values()]
+    arouter_compiler = [arouter_compiler.values()]
+
     epoxyDep = [epoxy.values()] //还不能用
     epoxyProcessorDep = [epoxyProcessor.values()] //还不能用
 }
