@@ -1,6 +1,7 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: "${rootProject.rootDir}/config.gradle"
 
 android {
@@ -8,8 +9,9 @@ android {
     project.ext.setDefaultConfig project
 
     defaultConfig {
-        applicationId "com.cmd.hit.naughtychat"
+        consumerProguardFiles 'consumer-rules.pro'
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -18,29 +20,27 @@ android {
     }
 }
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+    generateStubs = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 
     implementation project.ext.rxDeps
     implementation project.ext.retrofitDeps
     implementation project.ext.okhttpDep
     implementation project.ext.supportDeps
     implementation project.ext.kotlinDeps
-
-    if (isNeedTestModule.toBoolean()){
-        implementation project(':test')
-    }
-    if (isNeedImModule.toBoolean()){
-        implementation project(':im')
-    }
-    if (isNeedMainModule.toBoolean()){
-        implementation project(':main')
-    }
-    implementation project(':common')
+    implementation project.ext.arouter_api
 }

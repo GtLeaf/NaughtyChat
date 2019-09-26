@@ -34,6 +34,7 @@ android {
         }
     }
 
+    resourcePrefix "im_"
 }
 
 dependencies {
@@ -55,4 +56,6 @@ dependencies {
     implementation project.ext.okhttpDep
     implementation project.ext.supportDeps
     implementation project.ext.kotlinDeps
+
+    implementation project(':common')
 }

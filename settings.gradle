@@ -1,2 +1,2 @@
-include ':app', ':test', ':im', ':commonlib'
+include ':app', ':test', ':im', ':main', ':common'
 rootProject.name='NaughtyChat'
