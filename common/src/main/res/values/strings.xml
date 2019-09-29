@@ -1,3 +1,9 @@
 <resources>
     <string name="main_app_name">common</string>
+    <!--    左滑菜单-->
+    <string name="main_nav_home_page">首页</string>
+
+    <!--    底部导航栏-->
+    <string name="main_plaza">广场</string>
+    <string name="main_message">消息</string>
 </resources>

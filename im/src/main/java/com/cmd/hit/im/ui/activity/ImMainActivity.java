@@ -47,9 +47,9 @@ import butterknife.ButterKnife;
  * 作者：Rance on 2016/11/29 10:47
  * 邮箱：rance935@163.com
  */
-public class MainActivity extends AppCompatActivity {
+public class ImMainActivity extends AppCompatActivity {
 
-    private static String TAG = "MainActivity";
+    private static String TAG = "ImMainActivity";
 
     @Bind(R.id.chat_list)
     EasyRecyclerView chatList;
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.im_activity_chat_main);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         initWidget();
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     private ChatAdapter.onItemClickListener itemClickListener = new ChatAdapter.onItemClickListener() {
         @Override
         public void onHeaderClick(int position) {
-            Toast.makeText(MainActivity.this, "onHeaderClick", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ImMainActivity.this, "onHeaderClick", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             fullImageInfo.setHeight(view.getHeight());
             fullImageInfo.setImageUrl(messageInfos.get(position).getImageUrl());
             EventBus.getDefault().postSticky(fullImageInfo);
-            startActivity(new Intent(MainActivity.this, FullImageActivity.class));
+            startActivity(new Intent(ImMainActivity.this, FullImageActivity.class));
             overridePendingTransition(0, 0);
         }
 

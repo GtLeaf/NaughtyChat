@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cmd.hit.im">
 
-    <application android:theme="@style/AppTheme"
+    <application android:theme="@style/im_AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".test.MainActivity"/>
     </application>
 
 </manifest>

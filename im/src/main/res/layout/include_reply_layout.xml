@@ -45,7 +45,7 @@
 
         <TextView
             android:id="@+id/voice_text"
-            style="@style/text_subhead_black"
+            style="@style/im_text_subhead_black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -83,8 +83,8 @@
             android:text="发送"
             android:textColor="@color/white"
             android:visibility="gone"
-            app:normalBackgroundColor="@color/colorPrimary"
-            app:pressedBackgroundColor="@color/colorPrimaryDark"
+            app:normalBackgroundColor="@color/im_colorPrimary"
+            app:pressedBackgroundColor="@color/im_colorPrimaryDark"
             app:radius="5dp" />
 
     </LinearLayout>
