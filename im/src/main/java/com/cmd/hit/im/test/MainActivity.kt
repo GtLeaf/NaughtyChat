@@ -8,10 +8,11 @@ import androidx.viewpager.widget.ViewPager
 import com.cmd.hit.im.R
 import com.cmd.hit.im.test.adapter.ViewPagerAdapter
 import com.cmd.hit.im.ui.fragment.ChatMessageFragment
+import com.cmd.hit.im.ui.fragment.dummy.DummyContent
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.im_activity_main2.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ChatMessageFragment.OnListFragmentInteractionListener {
 
     private var menuItem : MenuItem? = null
     private val viewPagerAdapter by lazy {
@@ -22,16 +23,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.im_activity_main2)
         initView()
-//        initListener()
+        initListener()
     }
 
     private fun initView() {
         im_vp_main.adapter = viewPagerAdapter
-//        viewPagerAdapter.setList(getFragmentList())
+        viewPagerAdapter.setList(getFragmentList())
     }
 
     private fun initListener() {
         im_bnv_main.setOnNavigationItemSelectedListener{
+//            viewPagerAdapter.setList(getFragmentList())
             menuItem = it
             when (menuItem?.itemId) {
                 R.id.bottom_navigation_plaza -> {
@@ -66,8 +68,7 @@ class MainActivity : AppCompatActivity() {
                 menuItem?.isChecked = true
             }
 
-            override fun onPageSelected(position: Int) {
-            }
+            override fun onPageSelected(position: Int) {}
         })
     }
 
@@ -76,5 +77,9 @@ class MainActivity : AppCompatActivity() {
             this.add(ChatMessageFragment.newInstance(1))
             this.add(ChatMessageFragment.newInstance(2))
         }
+    }
+
+    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
+
     }
 }

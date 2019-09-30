@@ -19,7 +19,7 @@
         android:name=".base.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/main_app_name"
+        android:label="@string/im_app_name"
         android:supportsRtl="true"
         android:theme="@style/im_AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
