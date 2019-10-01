@@ -53,11 +53,5 @@ dependencies {
     implementation 'com.jakewharton:butterknife:7.0.1'
     annotationProcessor 'com.jakewharton:butterknife:7.0.1'
 
-    implementation project.ext.rxDeps
-    implementation project.ext.retrofitDeps
-    implementation project.ext.okhttpDep
-    implementation project.ext.supportDeps
-    implementation project.ext.kotlinDeps
-
     implementation project(':common')
 }

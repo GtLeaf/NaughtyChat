@@ -42,8 +42,8 @@ ext {
     ]
 
     //*************************类库maven地址**************************
-    kotlin_base = [kotlin_stdlib_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version"
-    ]
+    kotlin_base = [kotlin_stdlib_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version"]
+
     supportLibs = [
             design      : "com.android.support:design:$dependVersion.support_version",
             appcompat_v7: "com.android.support:appcompat-v7:$dependVersion.support_version",
@@ -68,9 +68,8 @@ ext {
 
 
     roomLib = [room_runtime: "android.arch.persistence.room:runtime:$dependVersion.room_version",
-               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version",
+               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version"]
 
-    ]
     room = [room: "android.arch.persistence.room:compiler:$dependVersion.room_version"]
 
     recyclerView = [recyclerview: "com.android.support:recyclerview-v7:$dependVersion.recyclerview"]
@@ -87,7 +86,7 @@ ext {
 
     arouterCompiler = [arouter_compiler: "com.alibaba:arouter-compiler:$dependVersion.arouter_compiler"]
 
-    //********************项目依赖列表**********************
+            //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
     supportDeps = [supportLibs.values()]
     databindingDeps = [databindingLibs.values()]
@@ -102,6 +101,40 @@ ext {
     arouterApi = [arouterApi.values()]
     arouterCompiler = [arouterCompiler.values()]
 
-    epoxyDep = [epoxy.values()] //还不能用
-    epoxyProcessorDep = [epoxyProcessor.values()] //还不能用
+    epoxy = [epoxy.values()] //还不能用
+    epoxyProcessor = [epoxyProcessor.values()] //还不能用
+
+    dependencies = [
+            //support
+            kotlin_stdlib_jdk8  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version",
+            appcompat_v7        : "com.android.support:appcompat-v7:$dependVersion.support_version",
+            design              : "com.android.support:design:$dependVersion.support_version",
+            recyclerview_v7     : "com.android.support:recyclerview-v7:$dependVersion.support_version",
+            cardview_v7         : "com.android.support:cardview-v7:$dependVersion.support_version",
+            constraint          : 'com.android.support.constraint:constraint-layout:1.1.3',
+            databinding         : "com.android.databinding:compiler:$dependVersion.databinding_version",
+
+            //network
+            retrofit            : "com.squareup.retrofit2:retrofit:$dependVersion.retrofit2_version",
+            retrofit_converters : "com.squareup.retrofit2:converter-gson:$dependVersion.retrofit2_version",
+            retrofit_converters_scalars: "com.squareup.retrofit2:converter-scalars:$dependVersion.retrofit2_scalars_version",
+            retrofit_adapters   : "com.squareup.retrofit2:adapter-rxjava2:$dependVersion.retrofit2_version",
+            rxandroid           : "io.reactivex.rxjava2:rxandroid:$dependVersion.rxandroid_version",
+            rxjava              : "io.reactivex.rxjava2:rxjava:$dependVersion.rxjava_version",
+            room_runtime        : "android.arch.persistence.room:runtime:$dependVersion.room_version",
+            room_rxjave2        : "android.arch.persistence.room:rxjava2:$dependVersion.room_version",
+            room                : "android.arch.persistence.room:compiler:$dependVersion.room_version",
+            okhttp              : "com.squareup.okhttp3:okhttp:$dependVersion.okhttp_version",
+            okhttplog           : "com.squareup.okhttp3:logging-interceptor:$dependVersion.okhttp_version",
+            gson                : "com.google.code.gson:gson:$dependVersion.gson_version",
+
+            //recyclerView
+            epoxy               : "com.airbnb.android:epoxy:$dependVersion.epoxy_version",
+            epoxy_processor     : "com.airbnb.android:epoxy-processor:$dependVersion.epoxy_version",
+            paging              : "android.arch.paging:runtime:$dependVersion.paging_version",
+
+            //router
+            arouter_api         : "com.alibaba:arouter-api:$dependVersion.arouter_api",
+            arouter_compiler    : "com.alibaba:arouter-compiler:$dependVersion.arouter_compiler"
+    ]
 }

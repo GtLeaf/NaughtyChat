@@ -56,12 +56,5 @@ dependencies {
     }
     kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
 
-    implementation project.ext.rxDeps
-    implementation project.ext.retrofitDeps
-    implementation project.ext.okhttpDep
-    implementation project.ext.supportDeps
-    implementation project.ext.kotlinDeps
-    implementation project.ext.recyclerViewDep
-    implementation project.ext.pagingDep
-
+    implementation project(':common')
 }

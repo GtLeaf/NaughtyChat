@@ -42,10 +42,13 @@ dependencies {
     }
     kapt "com.airbnb.android:epoxy-processor:$dependVersion.epoxyVersion"
 
-    implementation rxDeps
-    implementation retrofitDeps
-    implementation okhttpDep
-    implementation supportDeps
-    implementation kotlinDeps
-    implementation arouterApi
+    api project.ext.dependencies.kotlin_stdlib_jdk8
+    api project.ext.retrofitDeps
+    api project.ext.okhttpDep
+    api project.ext.supportDeps
+    api project.ext.kotlinDeps
+    api project.ext.arouterApi
+    api project.ext.recyclerViewDep
+    api project.ext.pagingDep
+    api (project.ext.epoxy){exclude group: 'com.android.support'}
 }

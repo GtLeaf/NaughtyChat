@@ -27,12 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project.ext.rxDeps
-    implementation project.ext.retrofitDeps
-    implementation project.ext.okhttpDep
-    implementation project.ext.supportDeps
-    implementation project.ext.kotlinDeps
-
     if (isNeedTestModule.toBoolean()){
         implementation project(':test')
     }
