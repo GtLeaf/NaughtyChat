@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android-Project-NaughtyChat.iml" filepath="$PROJECT_DIR$/Android-Project-NaughtyChat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidProject-NaughtyChat.iml" filepath="$PROJECT_DIR$/AndroidProject-NaughtyChat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/AndroidProject-NaughtyChat-app.iml" filepath="$PROJECT_DIR$/app/AndroidProject-NaughtyChat-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/im/AndroidProject-NaughtyChat-im.iml" filepath="$PROJECT_DIR$/im/AndroidProject-NaughtyChat-im.iml" />
-      <module fileurl="file://$PROJECT_DIR$/test/AndroidProject-NaughtyChat-test.iml" filepath="$PROJECT_DIR$/test/AndroidProject-NaughtyChat-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/NaughtyChat.iml" filepath="$PROJECT_DIR$/NaughtyChat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/NaughtyChat-app.iml" filepath="$PROJECT_DIR$/app/NaughtyChat-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/im/NaughtyChat-im.iml" filepath="$PROJECT_DIR$/im/NaughtyChat-im.iml" />
-      <module fileurl="file://$PROJECT_DIR$/test/NaughtyChat-test.iml" filepath="$PROJECT_DIR$/test/NaughtyChat-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Project-NaughtyChat.iml" filepath="$PROJECT_DIR$/Project-NaughtyChat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/Project-NaughtyChat-app.iml" filepath="$PROJECT_DIR$/app/Project-NaughtyChat-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NaughtyChat-commonliba/Project-NaughtyChat-commonlib.iml" filepath="$PROJECT_DIR$/NaughtyChat-commonliba/Project-NaughtyChat-commonlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/im/Project-NaughtyChat-im.iml" filepath="$PROJECT_DIR$/im/Project-NaughtyChat-im.iml" />
-      <module fileurl="file://$PROJECT_DIR$/test/Project-NaughtyChat-test.iml" filepath="$PROJECT_DIR$/test/Project-NaughtyChat-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NaughtyChat-commonliba/commonlib.iml" filepath="$PROJECT_DIR$/NaughtyChat-commonliba/commonlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/im/im.iml" filepath="$PROJECT_DIR$/im/im.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />

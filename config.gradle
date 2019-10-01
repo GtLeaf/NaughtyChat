@@ -21,22 +21,24 @@ project.ext {
 ext {
     //引用类库的版本号
     dependVersion = [
-            kotlin_version     : '1.3.41',
-            support_version    : '28.1.1',
-            databinding_version: '3.1.4',
-            retrofit2_version  : '2.3.0',
-            gson_version       : '2.8.5',
-            rxandroid_version  : '2.1.0',
-            rxjava_version     : '2.2.2',
-            stetho_version     : '1.5.0',
-            room_version       : '1.1.1',
-            okhttp_version     : '3.11.0',
-            retrofit2_scalars_version  : '2.5.0',
-            recyclerview       : '27.1.1',
-            epoxy_version      : '3.2',
-            paging_version     : '1.0.1',
-            arouter_api        : '1.5.0',
-            arouter_compiler   : '1.2.2'
+            kotlin_version              : '1.3.41',
+            support_version             : '28.1.1',
+            databinding_version         : '3.1.4',
+            retrofit2_version           : '2.3.0',
+            gson_version                : '2.8.5',
+            rxandroid_version           : '2.1.0',
+            rxjava_version              : '2.2.2',
+            stetho_version              : '1.5.0',
+            room_version                : '1.1.1',
+            okhttp_version              : '3.11.0',
+            retrofit2_scalars_version   : '2.5.0',
+            recyclerview                : '27.1.1',
+            epoxy_version               : '3.2',
+            paging_version              : '1.0.1',
+            arouter_api                 : '1.5.0',
+            arouter_compiler            : '1.2.2',
+            epoxyVersion                : '3.2.0'
+
     ]
 
     //*************************类库maven地址**************************
@@ -81,9 +83,9 @@ ext {
 
     paging = [paging: "android.arch.paging:runtime:$dependVersion.paging_version"]
 
-    arouter_api = [arouter_api: "com.alibaba:arouter-api:$dependVersion.arouter_api"]
+    arouterApi = [arouter_api: "com.alibaba:arouter-api:$dependVersion.arouter_api"]
 
-    arouter_compiler = [arouter_compiler: "com.alibaba:arouter-compiler:$dependVersion.arouter_compiler"]
+    arouterCompiler = [arouter_compiler: "com.alibaba:arouter-compiler:$dependVersion.arouter_compiler"]
 
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
@@ -97,8 +99,8 @@ ext {
     okhttpDep = [okhttpLibs.values()]
     recyclerViewDep = [recyclerView.values()]
     pagingDep = [paging.values()]
-    arouter_api = [arouter_api.values()]
-    arouter_compiler = [arouter_compiler.values()]
+    arouterApi = [arouterApi.values()]
+    arouterCompiler = [arouterCompiler.values()]
 
     epoxyDep = [epoxy.values()] //还不能用
     epoxyProcessorDep = [epoxyProcessor.values()] //还不能用

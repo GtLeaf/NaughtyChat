@@ -37,10 +37,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 
-    implementation project.ext.rxDeps
-    implementation project.ext.retrofitDeps
-    implementation project.ext.okhttpDep
-    implementation project.ext.supportDeps
-    implementation project.ext.kotlinDeps
-    implementation project.ext.arouter_api
+    implementation("com.airbnb.android:epoxy:$dependVersion.epoxyVersion") {
+        exclude group: 'com.android.support'
+    }
+    kapt "com.airbnb.android:epoxy-processor:$dependVersion.epoxyVersion"
+
+    implementation rxDeps
+    implementation retrofitDeps
+    implementation okhttpDep
+    implementation supportDeps
+    implementation kotlinDeps
+    implementation arouterApi
 }
