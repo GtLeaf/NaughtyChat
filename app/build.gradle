@@ -26,9 +26,9 @@ dependencies {
     if (isNeedTestModule.toBoolean()){
         implementation project(':test')
     }
-    if (isNeedImModule.toBoolean()){
-        implementation project(':im')
-    }
+
+    implementation project(':im')
+
     if (isNeedMainModule.toBoolean()){
         implementation project(':main')
     }

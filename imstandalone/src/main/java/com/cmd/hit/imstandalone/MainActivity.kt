@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.cmd.hit.im.R
 import com.cmd.hit.imstandalone.adapter.ViewPagerAdapter
 import com.cmd.hit.im.ui.fragment.ChatMessageFragment
 import com.cmd.hit.im.ui.fragment.dummy.DummyContent
