@@ -36,7 +36,8 @@ ext {
             paging_version              : '1.0.1',
             arouter_api                 : '1.5.0',
             arouter_compiler            : '1.2.2',
-            epoxyVersion                : '3.2.0'
+            epoxyVersion                : '3.2.0',
+            butterknifeVersion          : butterknifeVersion    //在app/build.gradle中定义
     ]
 
     //*************************类库maven地址**************************
@@ -99,8 +100,8 @@ ext {
     arouterApi = [arouterApi.values()]
     arouterCompiler = [arouterCompiler.values()]
 
-    epoxy = [epoxy.values()] //还不能用
-    epoxyProcessor = [epoxyProcessor.values()] //还不能用
+    epoxy = [epoxy.values()]
+    epoxyProcessor = [epoxyProcessor.values()]
 
     dependencies = [
             //support
@@ -142,7 +143,7 @@ ext {
 
             //util
             eventbus            : "org.greenrobot:eventbus:3.0.0",
-            butterknife         : "com.jakewharton:butterknife:7.0.1",
+            butterknife         : "com.jakewharton:butterknife:$dependVersion.butterknifeVersion",
 
             //image
             glide               : "com.github.bumptech.glide:glide:3.7.0"

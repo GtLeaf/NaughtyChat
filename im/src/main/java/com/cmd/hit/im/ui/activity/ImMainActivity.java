@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cmd.hit.im.R;
+import com.cmd.hit.im.R2;
 import com.cmd.hit.im.adapter.ChatAdapter;
 import com.cmd.hit.im.adapter.CommonFragmentPagerAdapter;
 import com.cmd.hit.im.enity.FullImageInfo;
@@ -40,8 +41,9 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 作者：Rance on 2016/11/29 10:47
@@ -50,24 +52,25 @@ import butterknife.ButterKnife;
 public class ImMainActivity extends AppCompatActivity {
 
     private static String TAG = "ImMainActivity";
+    private Unbinder unbinder;
 
-    @Bind(R.id.chat_list)
+    @BindView(R2.id.chat_list)
     EasyRecyclerView chatList;
-    @Bind(R.id.emotion_voice)
+    @BindView(R2.id.emotion_voice)
     ImageView emotionVoice;
-    @Bind(R.id.edit_text)
+    @BindView(R2.id.edit_text)
     EditText editText;
-    @Bind(R.id.voice_text)
+    @BindView(R2.id.voice_text)
     TextView voiceText;
-    @Bind(R.id.emotion_button)
+    @BindView(R2.id.emotion_button)
     ImageView emotionButton;
-    @Bind(R.id.emotion_add)
+    @BindView(R2.id.emotion_add)
     ImageView emotionAdd;
-    @Bind(R.id.emotion_send)
+    @BindView(R2.id.emotion_send)
     StateButton emotionSend;
-    @Bind(R.id.viewpager)
+    @BindView(R2.id.viewpager)
     NoScrollViewPager viewpager;
-    @Bind(R.id.emotion_layout)
+    @BindView(R2.id.emotion_layout)
     RelativeLayout emotionLayout;
 
     private EmotionInputDetector mDetector;
@@ -90,7 +93,7 @@ public class ImMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
         setContentView(R.layout.im_activity_chat_main);
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         initWidget();
     }
@@ -280,7 +283,7 @@ public class ImMainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+        unbinder.unbind();
         EventBus.getDefault().removeStickyEvent(this);
         EventBus.getDefault().unregister(this);
     }

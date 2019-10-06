@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.cmd.hit.im.R;
+import com.cmd.hit.im.R2;
 import com.cmd.hit.im.adapter.EmotionGridViewAdapter;
 import com.cmd.hit.im.adapter.EmotionPagerAdapter;
 import com.cmd.hit.im.base.BaseFragment;
@@ -23,7 +24,7 @@ import com.cmd.hit.im.widget.IndicatorView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -31,9 +32,9 @@ import butterknife.ButterKnife;
  * 邮箱：rance935@163.com
  */
 public class ChatEmotionFragment extends BaseFragment {
-    @Bind(R.id.fragment_chat_vp)
+    @BindView(R2.id.fragment_chat_vp)
     ViewPager fragmentChatVp;
-    @Bind(R.id.fragment_chat_group)
+    @BindView(R2.id.fragment_chat_group)
     IndicatorView fragmentChatGroup;
     private View rootView;
     private EmotionPagerAdapter emotionPagerAdapter;

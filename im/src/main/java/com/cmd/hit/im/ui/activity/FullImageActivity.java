@@ -16,13 +16,14 @@ import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.cmd.hit.im.R;
+import com.cmd.hit.im.R2;
 import com.cmd.hit.im.enity.FullImageInfo;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -32,9 +33,9 @@ import butterknife.OnClick;
  */
 public class FullImageActivity extends Activity {
 
-    @Bind(R.id.full_image)
+    @BindView(R2.id.full_image)
     ImageView fullImage;
-    @Bind(R.id.full_lay)
+    @BindView(R2.id.full_lay)
     LinearLayout fullLay;
     private int mLeft;
     private int mTop;
@@ -116,7 +117,7 @@ public class FullImageActivity extends Activity {
         });
     }
 
-    @OnClick(R.id.full_image)
+    @OnClick(R2.id.full_image)
     public void onClick() {
         activityExitAnim(new Runnable() {
             @Override

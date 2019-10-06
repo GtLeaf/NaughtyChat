@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.cmd.hit.im.R;
+import com.cmd.hit.im.R2;
 import com.cmd.hit.im.base.BaseFragment;
 import com.cmd.hit.im.enity.MessageInfo;
 import com.cmd.hit.im.util.Constants;
@@ -26,6 +27,7 @@ import com.cmd.hit.im.util.Constants;
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
+import java.util.Objects;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -53,33 +55,31 @@ public class ChatFunctionFragment extends BaseFragment {
         return rootView;
     }
 
-    @OnClick({R.id.chat_function_photo, R.id.chat_function_photograph})
+    @OnClick({R2.id.chat_function_photo, R2.id.chat_function_photograph})
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.chat_function_photograph:
-                if (ContextCompat.checkSelfPermission(getActivity(),
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            MY_PERMISSIONS_REQUEST_CALL_PHONE2);
+        int viewId = view.getId();
+        if (viewId == R.id.chat_function_photograph) {
+            if (ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_CALL_PHONE2);
 
-                } else {
-                    takePhoto();
-                }
-                break;
-            case R.id.chat_function_photo:
-                if (ContextCompat.checkSelfPermission(getActivity(),
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            MY_PERMISSIONS_REQUEST_CALL_PHONE2);
+            } else {
+                takePhoto();
+            }
+        } else if (viewId == R.id.chat_function_photo) {
+            if (ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_CALL_PHONE2);
 
-                } else {
-                    choosePhoto();
-                }
-                break;
+            } else {
+                choosePhoto();
+            }
         }
     }
 

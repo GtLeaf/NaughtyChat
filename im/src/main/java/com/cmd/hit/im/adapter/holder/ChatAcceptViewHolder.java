@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cmd.hit.im.R;
+import com.cmd.hit.im.R2;
 import com.cmd.hit.im.adapter.ChatAdapter;
 import com.cmd.hit.im.enity.MessageInfo;
 import com.cmd.hit.im.util.Utils;
@@ -16,7 +17,7 @@ import com.cmd.hit.im.widget.BubbleImageView;
 import com.cmd.hit.im.widget.GifTextView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -25,19 +26,19 @@ import butterknife.ButterKnife;
  */
 public class ChatAcceptViewHolder extends BaseViewHolder<MessageInfo> {
 
-    @Bind(R.id.chat_item_date)
+    @BindView(R2.id.chat_item_date)
     TextView chatItemDate;
-    @Bind(R.id.chat_item_header)
+    @BindView(R2.id.chat_item_header)
     ImageView chatItemHeader;
-    @Bind(R.id.chat_item_content_text)
+    @BindView(R2.id.chat_item_content_text)
     GifTextView chatItemContentText;
-    @Bind(R.id.chat_item_content_image)
+    @BindView(R2.id.chat_item_content_image)
     BubbleImageView chatItemContentImage;
-    @Bind(R.id.chat_item_voice)
+    @BindView(R2.id.chat_item_voice)
     ImageView chatItemVoice;
-    @Bind(R.id.chat_item_layout_content)
+    @BindView(R2.id.chat_item_layout_content)
     LinearLayout chatItemLayoutContent;
-    @Bind(R.id.chat_item_voice_time)
+    @BindView(R2.id.chat_item_voice_time)
     TextView chatItemVoiceTime;
     private ChatAdapter.onItemClickListener onItemClickListener;
     private Handler handler;
