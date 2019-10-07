@@ -2,12 +2,14 @@ package com.cmd.hit.imstandalone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.cmd.hit.imstandalone.adapter.ViewPagerAdapter
 import com.cmd.hit.im.ui.fragment.ChatMessageFragment
 import com.cmd.hit.im.ui.fragment.dummy.DummyContent
+import com.cmd.hit.main.ServiceFactory
 import kotlinx.android.synthetic.main.im_activity_main2.*
 
 class MainActivity : AppCompatActivity(), ChatMessageFragment.OnListFragmentInteractionListener {
@@ -73,7 +75,9 @@ class MainActivity : AppCompatActivity(), ChatMessageFragment.OnListFragmentInte
     private fun getFragmentList() : ArrayList<Fragment> {
         return ArrayList<Fragment>().apply {
             this.add(ChatMessageFragment.newInstance(1))
-            this.add(ChatMessageFragment.newInstance(2))
+//            this.add(ChatMessageFragment.newInstance(2))
+            this.add(ServiceFactory.INSTANCE.iImService!!.obtainMessageFragment())
+            Log.d("getFragmentList", "get")
         }
     }
 

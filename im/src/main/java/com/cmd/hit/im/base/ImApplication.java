@@ -4,12 +4,18 @@ import android.app.Application;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
+import com.cmd.hit.im.service.ImService;
+import com.cmd.hit.main.ServiceFactory;
+import com.cmd.hit.main.base.BaseApp;
+
+import org.jetbrains.annotations.NotNull;
+
 /**
  * 作者：Rance on 2016/12/20 16:49
  * 邮箱：rance935@163.com
  */
-public class MyApplication extends Application {
-    private static MyApplication mInstance;
+public class ImApplication extends BaseApp {
+    private static ImApplication mInstance;
     public static Context mContext;
     /**
      * 屏幕宽度
@@ -24,13 +30,13 @@ public class MyApplication extends Application {
      */
     public static float screenDensity;
 
-    @Override
+    /*@Override
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
         mInstance = this;
         initScreenSize();
-    }
+    }*/
 
     public static Context getInstance() {
         return mInstance;
@@ -44,5 +50,21 @@ public class MyApplication extends Application {
         screenWidth = curMetrics.widthPixels;
         screenHeight = curMetrics.heightPixels;
         screenDensity = curMetrics.density;
+    }
+
+    @Override
+    public void initApp(@NotNull Application application) {
+        initModuleApp(application);
+        initModuleData(application);
+    }
+
+    private void initModuleApp(@NotNull Application application) {
+        ServiceFactory.Companion.getINSTANCE().setIImService(new ImService());
+    }
+
+    public void initModuleData(@NotNull Application application) {
+        mContext = getApplicationContext();
+        mInstance = this;
+        initScreenSize();
     }
 }

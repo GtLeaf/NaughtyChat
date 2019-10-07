@@ -1,8 +1,5 @@
 package com.cmd.hit.im.ui.activity
 
-import android.content.Context
-import com.cmd.hit.im.base.MyApplication.mContext
-
 class TestClass(mcontext: String, id: Int, postion: Int) {
     val context  = mcontext
 

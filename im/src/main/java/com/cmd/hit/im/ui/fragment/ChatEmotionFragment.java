@@ -15,7 +15,7 @@ import com.cmd.hit.im.R2;
 import com.cmd.hit.im.adapter.EmotionGridViewAdapter;
 import com.cmd.hit.im.adapter.EmotionPagerAdapter;
 import com.cmd.hit.im.base.BaseFragment;
-import com.cmd.hit.im.base.MyApplication;
+import com.cmd.hit.im.base.ImApplication;
 import com.cmd.hit.im.util.EmotionUtils;
 import com.cmd.hit.im.util.GlobalOnItemClickManagerUtils;
 import com.cmd.hit.im.util.Utils;
@@ -83,7 +83,7 @@ public class ChatEmotionFragment extends BaseFragment {
      */
     private void initEmotion() {
         // 获取屏幕宽度
-        int screenWidth = MyApplication.screenWidth;
+        int screenWidth = ImApplication.screenWidth;
         // item的间距
         int spacing = Utils.dp2px(getActivity(), 12);
         // 动态计算item的宽度和高度

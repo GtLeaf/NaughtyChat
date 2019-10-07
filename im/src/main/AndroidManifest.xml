@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cmd.hit.im">
 
-    <application android:theme="@style/im_AppTheme"
+    <application
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.activity.ImMainActivity"
