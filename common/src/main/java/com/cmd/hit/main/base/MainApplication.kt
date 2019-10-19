@@ -1,9 +1,7 @@
-/*
-package base
+package com.cmd.hit.main.base
 
 import android.app.Application
 import com.cmd.hit.main.AppConfig
-import com.cmd.hit.main.base.BaseApp
 
 class MainApplication : BaseApp() {
     override fun initApp(application: Application) {
@@ -28,4 +26,4 @@ class MainApplication : BaseApp() {
         mInstance = this
         initApp(this)
     }
-}*/
+}

@@ -15,8 +15,8 @@ import org.jetbrains.annotations.NotNull;
  * 邮箱：rance935@163.com
  */
 public class ImApplication extends BaseApp {
-    private static Application mInstance;
-    public static Context mContext;
+//    private static Application mInstance;
+//    public static Context mContext;
     /**
      * 屏幕宽度
      */
@@ -38,15 +38,11 @@ public class ImApplication extends BaseApp {
         initScreenSize();
     }*/
 
-    public static Context getInstance() {
-        return mInstance;
-    }
-
     /**
      * 初始化当前设备屏幕宽高
      */
     private void initScreenSize() {
-        DisplayMetrics curMetrics = mContext.getResources().getDisplayMetrics();
+        DisplayMetrics curMetrics = Companion.getMContext().getResources().getDisplayMetrics();
         screenWidth = curMetrics.widthPixels;
         screenHeight = curMetrics.heightPixels;
         screenDensity = curMetrics.density;
@@ -63,8 +59,6 @@ public class ImApplication extends BaseApp {
     }
 
     public void initModuleData(@NotNull Application application) {
-        mContext = application.getApplicationContext();
-        mInstance = this;
         initScreenSize();
     }
 }
