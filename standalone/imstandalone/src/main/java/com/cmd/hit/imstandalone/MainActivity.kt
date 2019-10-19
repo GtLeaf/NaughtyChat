@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.cmd.hit.im.enity.ImBuilder
 import com.cmd.hit.imstandalone.adapter.ViewPagerAdapter
 import com.cmd.hit.im.ui.fragment.ChatMessageFragment
 import com.cmd.hit.im.ui.fragment.dummy.DummyContent
@@ -74,9 +75,13 @@ class MainActivity : AppCompatActivity(), ChatMessageFragment.OnListFragmentInte
 
     private fun getFragmentList() : ArrayList<Fragment> {
         return ArrayList<Fragment>().apply {
-            this.add(ChatMessageFragment.newInstance(1))
+            this.add(ServiceFactory.INSTANCE.iImService!!.obtainMessageFragment(ImBuilder
+                .count(1)
+                .build()))
 //            this.add(ChatMessageFragment.newInstance(2))
-            this.add(ServiceFactory.INSTANCE.iImService!!.obtainMessageFragment())
+            this.add(ServiceFactory.INSTANCE.iImService!!.obtainMessageFragment(ImBuilder
+                .count(2)
+                .build()))
             Log.d("getFragmentList", "get")
         }
     }
