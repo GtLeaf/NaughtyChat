@@ -1,7 +1,7 @@
-package com.cmd.hit.main.emptyService
+package com.cmd.hit.main.service.emptyService
 
 import androidx.fragment.app.Fragment
-import com.cmd.hit.main.entry.Params
+import com.cmd.hit.main.model.entry.Params
 import com.cmd.hit.main.service.IImService
 
 class EmptyImService : IImService {

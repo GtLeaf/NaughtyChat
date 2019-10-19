@@ -1,7 +1,7 @@
 package com.cmd.hit.im.enity
 
-import com.cmd.hit.main.entry.IBuilder
-import com.cmd.hit.main.entry.Params
+import com.cmd.hit.main.model.entry.IBuilder
+import com.cmd.hit.main.model.entry.Params
 
 object ImBuilder : IBuilder {
     private var count = 0

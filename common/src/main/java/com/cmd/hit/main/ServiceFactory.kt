@@ -1,6 +1,6 @@
 package com.cmd.hit.main
 
-import com.cmd.hit.main.emptyService.EmptyImService
+import com.cmd.hit.main.service.emptyService.EmptyImService
 import com.cmd.hit.main.service.IImService
 
 class ServiceFactory private constructor(){

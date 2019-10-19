@@ -18,6 +18,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 kapt {
@@ -72,6 +74,10 @@ dependencies {
     annotationProcessor project.ext.dependencies.butterknife
 
     api project.ext.dependencies.glide
+
+    //极光推送
+    api project.ext.dependencies.jmessage
+    api project.ext.dependencies.jcore
 
     /*api project.ext.retrofitDeps
     api project.ext.okhttpDep

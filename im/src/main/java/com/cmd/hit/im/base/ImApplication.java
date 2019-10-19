@@ -10,6 +10,8 @@ import com.cmd.hit.main.base.BaseApp;
 
 import org.jetbrains.annotations.NotNull;
 
+import cn.jpush.im.android.api.JMessageClient;
+
 /**
  * 作者：Rance on 2016/12/20 16:49
  * 邮箱：rance935@163.com
@@ -56,6 +58,9 @@ public class ImApplication extends BaseApp {
 
     private void initModuleApp(@NotNull Application application) {
         ServiceFactory.Companion.getINSTANCE().setIImService(new ImService());
+        JMessageClient.setDebugMode(true);
+        JMessageClient.init(application);
+
     }
 
     public void initModuleData(@NotNull Application application) {
