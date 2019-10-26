@@ -8,7 +8,7 @@ android {
     project.ext.setDefaultConfig project
 
     defaultConfig {
-        applicationId "com.cmd.hit.naughtychat"
+        applicationId project.ext.mApplicationId
     }
     buildTypes {
         release {
