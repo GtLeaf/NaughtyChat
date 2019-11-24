@@ -1,4 +1,4 @@
 include ':app', ':test', ':im', ':main', ':common', ':adwebview'
 include ':standalone:imstandalone'
-include ':standalone:jsbridgestandalone'
+include ':standalone:adwebviewstandalone'
 rootProject.name='NaughtyChat'

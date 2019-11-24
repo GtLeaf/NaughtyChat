@@ -1,9 +1,11 @@
 package com.cmd.hit.main.base
 
 import android.app.Application
+import android.content.Context
+import androidx.multidex.MultiDex
 import com.cmd.hit.main.AppConfig
 
-class MainApplication : BaseApp() {
+open class MainApplication : BaseApp() {
     override fun initApp(application: Application) {
         for (moduleApp in AppConfig.moduleApps) {
             try {
@@ -25,5 +27,10 @@ class MainApplication : BaseApp() {
         mContext = applicationContext
         mInstance = this
         initApp(this)
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
     }
 }

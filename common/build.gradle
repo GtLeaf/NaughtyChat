@@ -10,6 +10,7 @@ android {
 
     defaultConfig {
         consumerProguardFiles 'consumer-rules.pro'
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -48,6 +49,7 @@ dependencies {
     api project.ext.dependencies.cardview_v7
     api project.ext.dependencies.kotlin_stdlib_jdk8
     api project.ext.dependencies.appcompat
+    api project.ext.dependencies.multidex
 
     api project.ext.dependencies.gson
     api project.ext.dependencies.retrofit

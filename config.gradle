@@ -127,6 +127,7 @@ ext {
             cardview_v7         : "com.android.support:cardview-v7:$dependVersion.support_version",
             kotlin_stdlib_jdk8  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version",
             databinding         : "com.android.databinding:compiler:$dependVersion.databinding_version",
+            multidex            : "com.android.support:multidex:1.0.3",
 
             //network
             retrofit            : "com.squareup.retrofit2:retrofit:$dependVersion.retrofit2_version",
