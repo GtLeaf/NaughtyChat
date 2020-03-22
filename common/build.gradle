@@ -81,6 +81,9 @@ dependencies {
     api project.ext.dependencies.jmessage
     api project.ext.dependencies.jcore
 
+    //jsbridge
+    api project.ext.dependencies.jsbridge
+
     /*api project.ext.retrofitDeps
     api project.ext.okhttpDep
     api project.ext.supportDeps

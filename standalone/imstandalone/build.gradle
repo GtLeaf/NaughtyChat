@@ -8,6 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.cmd.hit.imstandalone"
+        multiDexEnabled true
     }
 
     buildTypes {

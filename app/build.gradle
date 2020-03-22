@@ -9,6 +9,7 @@ android {
 
     defaultConfig {
         applicationId project.ext.mApplicationId
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -20,6 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:multidex:1.0.3'
 
     annotationProcessor project.ext.dependencies.butterknife
 

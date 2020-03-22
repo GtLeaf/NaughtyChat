@@ -28,4 +28,9 @@ class JsBridgeHandler {
             }
         }
     }
+
+    //android调用js方法
+    fun invokeJs() {
+
+    }
 }

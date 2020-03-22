@@ -6,5 +6,4 @@ import org.json.JSONObject
 class TestJsBridgeMethod : IJsBridgeMethod {
     override fun invoke(msg: JSONObject, callId: String) {
     }
-
 }

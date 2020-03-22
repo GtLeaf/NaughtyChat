@@ -16,6 +16,7 @@ android {
         if (!isNeedTestModule.toBoolean()) {
             applicationId "com.cmd.hit.test"
         }
+        multiDexEnabled true
     }
 
     buildTypes {

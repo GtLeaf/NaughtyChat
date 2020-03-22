@@ -7,6 +7,10 @@ import android.net.http.SslError
 import android.os.Build
 import android.util.Log
 import android.webkit.*
+import com.cmd.hit.adwebview.AdWebViewConstants.AD_WEBVIEW_SCHEME
+import com.cmd.hit.adwebview.AdWebViewConstants.HOST_FETCH_QUEUE
+import com.cmd.hit.adwebview.AdWebViewConstants.HOST_INVOKE
+import com.cmd.hit.adwebview.AdWebViewConstants.SCHEME
 import com.cmd.hit.adwebview.jsBridge.JsBridgeHandler
 
 class AdWebViewClient : WebViewClient() {
@@ -20,7 +24,7 @@ class AdWebViewClient : WebViewClient() {
         request?.url?.let {
             return checkScheme(it)
         }
-        return true
+        return false
     }
 
     override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -33,15 +37,22 @@ class AdWebViewClient : WebViewClient() {
 
     //TODO 需调整返回值
     private fun checkScheme(uri: Uri): Boolean {
-        if (uri.scheme == AdWebViewConstants.AD_WEBVIEW_SCHEME) {
-            if (uri.host == AdWebViewConstants.AD_WEBVIEW_HOST) {
-                //去请求消息队列
-            } else {
-                //去调用单个方法
-                jsBridgeHandler?.invokeAction(uri.host?: "", "1")
+        if (uri.scheme == SCHEME?: AD_WEBVIEW_SCHEME) {
+            return when (uri.host) {
+                HOST_FETCH_QUEUE -> {
+                    //去请求消息队列
+                    true
+                }
+                HOST_INVOKE -> {
+                    //去调用单个方法
+                    jsBridgeHandler?.invokeAction(uri.host ?: "", "1")
+                    true
+                }
+                //未定义事件，消费掉，但不执行任何操作
+                else -> true
             }
         }
-        return true
+        return false
     }
 
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -76,5 +87,14 @@ class AdWebViewClient : WebViewClient() {
     override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
         Log.d(TAG, "onReceivedSslError")
         super.onReceivedSslError(view, handler, error)
+    }
+
+    override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
+        Log.d(TAG, "doUpdateVisitedHistory")
+        super.doUpdateVisitedHistory(view, url, isReload)
+    }
+
+    override fun onLoadResource(view: WebView?, url: String?) {
+        super.onLoadResource(view, url)
     }
 }

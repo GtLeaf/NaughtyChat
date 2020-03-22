@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.webkit.*
+import com.cmd.hit.adwebview.AdWebChromClient
 import com.cmd.hit.adwebview.AdWebView
 import com.cmd.hit.adwebview.AdWebViewClient
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -38,8 +39,8 @@ class MainActivity : AppCompatActivity() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             applicationInfo.flags = ApplicationInfo.FLAG_DEBUGGABLE
             if(0 != applicationInfo.flags){
-                Log.i("Your app", "Enabling web debugging");
-                WebView.setWebContentsDebuggingEnabled(true);
+                Log.i("Your app", "Enabling web debugging")
+                WebView.setWebContentsDebuggingEnabled(true)
             }
         }
 
@@ -65,16 +66,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-        main_adwebview.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                view?.loadUrl(url)
-                return true
-            }
-        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -83,23 +74,10 @@ class MainActivity : AppCompatActivity() {
         settings.javaScriptEnabled = true
         settings.allowContentAccess = true
         settings.setAppCacheEnabled(true)
-        //设置 缓存模式
-        settings.cacheMode = WebSettings.LOAD_DEFAULT
         // 开启 DOM storage API 功能
         settings.domStorageEnabled = true
-        /*main_adwebview.webViewClient = object : WebViewClient() {
-            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                Log.d("WebViewClient", "onPageStarted")
-                super.onPageStarted(view, url, favicon)
-            }
-
-            override fun onPageFinished(view: WebView?, url: String?) {
-                Log.d("WebViewClient", "onPageFinished")
-                super.onPageFinished(view, url)
-            }
-        }*/
         main_adwebview.webViewClient = AdWebViewClient()
-        main_adwebview.webChromeClient = WebChromeClient()
+        main_adwebview.webChromeClient = AdWebChromClient()
 
     }
 }
