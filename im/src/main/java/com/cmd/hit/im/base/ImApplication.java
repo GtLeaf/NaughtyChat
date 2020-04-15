@@ -44,7 +44,11 @@ public class ImApplication extends BaseApp {
      * 初始化当前设备屏幕宽高
      */
     private void initScreenSize() {
-        DisplayMetrics curMetrics = Companion.getMContext().getResources().getDisplayMetrics();
+        Context context = Companion.getMContext().get();
+        if (context == null ) {
+            return;
+        }
+        DisplayMetrics curMetrics = context.getResources().getDisplayMetrics();
         screenWidth = curMetrics.widthPixels;
         screenHeight = curMetrics.heightPixels;
         screenDensity = curMetrics.density;

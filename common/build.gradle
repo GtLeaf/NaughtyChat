@@ -53,8 +53,9 @@ dependencies {
 
     api project.ext.dependencies.gson
     api project.ext.dependencies.retrofit
-    api project.ext.dependencies.retrofit_converters
     api project.ext.dependencies.retrofit_adapters
+    api project.ext.dependencies.retrofit_converters
+    api project.ext.dependencies.retrofit_converters_scalars
     api project.ext.dependencies.rxandroid
     api project.ext.dependencies.rxjava
     api project.ext.dependencies.okhttp
@@ -83,6 +84,9 @@ dependencies {
 
     //jsbridge
     api project.ext.dependencies.jsbridge
+
+    //本地缓存
+    api project.ext.dependencies.disklrucache
 
     /*api project.ext.retrofitDeps
     api project.ext.okhttpDep

@@ -1,9 +1,8 @@
 package com.cmd.hit.main
 
-class AppConfig {
-    companion object{
-        private const val IM_APPLICATION = "com.cmd.hit.im.base.ImApplication"
+object AppConfig {
+    private const val IM_APPLICATION = "com.cmd.hit.im.base.ImApplication"
+    private const val MAIN_APPLICATION = "com.cmd.hit.main.MainApplication"
 
-        var moduleApps = arrayOf(IM_APPLICATION)
-    }
+    var moduleApps = arrayOf(IM_APPLICATION, MAIN_APPLICATION)
 }

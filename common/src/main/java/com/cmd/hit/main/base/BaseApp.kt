@@ -3,6 +3,7 @@ package com.cmd.hit.main.base
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import java.lang.ref.WeakReference
 
 abstract class BaseApp : Application(){
 
@@ -14,7 +15,7 @@ abstract class BaseApp : Application(){
     companion object {
         var mInstance: Application? = null
         @SuppressLint("StaticFieldLeak")
-        var mContext: Context? = null
+        var mContext: WeakReference<Context>? = null
     }
 
 }

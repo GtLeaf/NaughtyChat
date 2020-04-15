@@ -1,0 +1,75 @@
+package com.cmd.hit.main.other;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.preference.PreferenceManager;
+
+/**
+ * Created by PC-0775 on 2019/4/29.
+ */
+
+public class SPUtil {
+    private static Context context;
+
+    /*
+    * 保存数据
+    * */
+    public static void put(String key, Object value){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        Editor editor = preferences.edit();
+        if (value instanceof String){
+            editor.putString(key, (String) value);
+
+        }else if (value instanceof Integer){
+            editor.putInt(key, (Integer) value);
+
+        }else if (value instanceof Float){
+            editor.putFloat(key, (Float) value);
+
+        }else if (value instanceof Boolean){
+            editor.putBoolean(key, (Boolean) value);
+
+        }else if (value instanceof Long){
+            editor.putLong(key, (Long) value);
+
+        }else {
+            editor.putString(key, value.toString());
+        }
+        editor.apply();
+    }
+
+    /*
+    * 获取数据
+    * */
+    public static <T> T get(String key, T defaultValue){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        Object obj = null;
+        if (defaultValue instanceof String){
+            obj = preferences.getString(key, (String)defaultValue);
+        }else if (defaultValue instanceof Integer){
+            obj = preferences.getInt(key, (Integer)defaultValue);
+        }else if (defaultValue instanceof Float){
+            obj = preferences.getFloat(key, (Float)defaultValue);
+        }else if (defaultValue instanceof Boolean){
+            obj = preferences.getBoolean(key, (Boolean)defaultValue);
+        }else if (defaultValue instanceof Long){
+            obj = preferences.getLong(key, (Long)defaultValue);
+        }
+        return (T) obj;
+    }
+
+
+    public static Context getContext() {
+        return context;
+    }
+
+    public static void setContext(Context context) {
+        SPUtil.context = context;
+    }
+
+    public static void clearMemory(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().clear().apply();
+    }
+}

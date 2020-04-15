@@ -1,4 +1,4 @@
-package com.cmd.hit.main.model.api
+package com.cmd.hit.main.model.remote.api
 
 interface JiGuangIMApi {
 

@@ -4,13 +4,13 @@
     package="com.cmd.hit.naughtychat">
 
     <application
-        android:name="com.cmd.hit.main.base.MainApplication"
+        android:name="com.cmd.hit.main.base.CommonApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/main_app_name"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/main_AppTheme"
-        tools:ignore="GoogleAppIndexingWarning" />
-
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace=" android:theme"/>
 </manifest>
