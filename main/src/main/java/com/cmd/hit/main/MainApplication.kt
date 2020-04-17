@@ -2,7 +2,7 @@ package com.cmd.hit.main
 
 import android.app.Application
 import com.cmd.hit.main.base.BaseApp
-import com.cmd.hit.main.other.PhotoCacheHelper
+import com.cmd.hit.main.utils.PhotoCacheHelper
 
 class MainApplication : BaseApp() {
     override fun initApp(application: Application) {

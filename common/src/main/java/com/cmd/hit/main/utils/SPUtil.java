@@ -1,4 +1,4 @@
-package com.cmd.hit.main.other;
+package com.cmd.hit.main.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

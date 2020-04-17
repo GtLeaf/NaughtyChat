@@ -88,6 +88,9 @@ dependencies {
     //本地缓存
     api project.ext.dependencies.disklrucache
 
+    //lifecycler
+    api project.ext.dependencies.lifecycler_extensions
+
     /*api project.ext.retrofitDeps
     api project.ext.okhttpDep
     api project.ext.supportDeps

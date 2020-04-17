@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="147dp">
+    <ImageView
+        android:id="@+id/iv_card_close"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_gravity="end|top"
+        android:paddingLeft="8dp"
+        android:paddingTop="7dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="4dp"
+        android:src="@mipmap/icon_ad_card_close" />
+</FrameLayout>

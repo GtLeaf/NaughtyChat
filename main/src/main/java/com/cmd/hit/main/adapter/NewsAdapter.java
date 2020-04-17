@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cmd.hit.main.R;
+import com.cmd.hit.main.base.EventCenter;
 import com.cmd.hit.main.model.bean.DateBean;
 import com.cmd.hit.main.model.bean.NewsBean;
 import com.cmd.hit.main.model.bean.TypeBean;
@@ -18,12 +19,16 @@ public class NewsAdapter extends RecyclerView.Adapter {
 
     private List<TypeBean> newsList;
 
+    private EventCenter eventCenter;
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType){
             case TypeBean.NEWS:
-                return new NewsHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.main_news_list_tem,parent,false));
+                NewsHolder newsHolder = new NewsHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.main_news_list_tem,parent,false));
+                newsHolder.setEventCenter(eventCenter);
+                return newsHolder;
             case TypeBean.DATE:
                 return new DateHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.main_news_list_date_item,parent,false));
         }
@@ -65,5 +70,13 @@ public class NewsAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemViewType(int position) {
         return newsList.get(position).getType();
+    }
+
+    public EventCenter getEventCenter() {
+        return eventCenter;
+    }
+
+    public void setEventCenter(EventCenter eventCenter) {
+        this.eventCenter = eventCenter;
     }
 }

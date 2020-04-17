@@ -1,4 +1,4 @@
-package com.cmd.hit.adwebview
+package com.cmd.hit.adwebview.adwebview
 
 import android.annotation.TargetApi
 import android.graphics.Bitmap
@@ -7,13 +7,14 @@ import android.net.http.SslError
 import android.os.Build
 import android.util.Log
 import android.webkit.*
-import com.cmd.hit.adwebview.AdWebViewConstants.AD_WEBVIEW_SCHEME
-import com.cmd.hit.adwebview.AdWebViewConstants.HOST_FETCH_QUEUE
-import com.cmd.hit.adwebview.AdWebViewConstants.HOST_INVOKE
-import com.cmd.hit.adwebview.AdWebViewConstants.SCHEME
+import com.cmd.hit.adwebview.adwebview.AdWebViewConstants.AD_WEBVIEW_SCHEME
+import com.cmd.hit.adwebview.adwebview.AdWebViewConstants.HOST_FETCH_QUEUE
+import com.cmd.hit.adwebview.adwebview.AdWebViewConstants.HOST_INVOKE
+import com.cmd.hit.adwebview.adwebview.AdWebViewConstants.SCHEME
 import com.cmd.hit.adwebview.jsBridge.JsBridgeHandler
 
-class AdWebViewClient : WebViewClient() {
+class AdWebViewClient @JvmOverloads constructor(private val client: WebViewClient? = null) :
+    WebViewClient() {
 
     var jsBridgeHandler: JsBridgeHandler? = null
     val TAG = "AdWebViewClient"

@@ -1,4 +1,4 @@
-package com.cmd.hit.main.other;
+package com.cmd.hit.main.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -26,7 +26,6 @@ import java.lang.ref.SoftReference;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import okhttp3.Call;
 import okhttp3.OkHttpClient;

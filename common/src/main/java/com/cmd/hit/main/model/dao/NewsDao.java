@@ -4,7 +4,7 @@ package com.cmd.hit.main.model.dao;
 import androidx.room.EmptyResultSetException;
 
 import com.cmd.hit.main.model.bean.News;
-import com.cmd.hit.main.other.SPUtil;
+import com.cmd.hit.main.utils.SPUtil;
 import com.google.gson.Gson;
 
 import io.reactivex.Observable;

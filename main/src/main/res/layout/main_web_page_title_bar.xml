@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pop_up_web_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44.5dp"
+        android:background="@color/white">
+
+        <View
+            android:id="@+id/pup_up_nav_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/soft_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/pop_up_web_close_all"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_pop_up_web_close"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/pop_up_web_report"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_pop_up_web_report"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+        <ImageView
+            android:id="@+id/pop_up_web_go_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="6dp"
+            android:paddingLeft="6dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/ic_pop_up_web_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pop_up_web_close_all"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pop_up_web_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxEms="9"
+            android:textColor="@color/s2_21"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="我我我我我我我我我我我我我" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

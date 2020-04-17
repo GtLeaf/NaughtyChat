@@ -6,7 +6,7 @@ import com.cmd.hit.main.model.bean.BeforeNews;
 import com.cmd.hit.main.model.bean.LatestNews;
 import com.cmd.hit.main.model.bean.News;
 import com.cmd.hit.main.model.repository.NewsRepository;
-import com.cmd.hit.main.other.PhotoCacheHelper;
+import com.cmd.hit.main.utils.PhotoCacheHelper;
 
 import io.reactivex.Observable;
 

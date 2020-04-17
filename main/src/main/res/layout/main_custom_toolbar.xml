@@ -5,7 +5,11 @@
     android:id="@+id/tl_custom"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/primaryRed"
-    android:minHeight="?attr/actionBarSize">
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:layout_scrollFlags="scroll|enterAlways">
+
 
 </androidx.appcompat.widget.Toolbar>

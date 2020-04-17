@@ -8,9 +8,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.webkit.*
-import com.cmd.hit.adwebview.AdWebChromClient
-import com.cmd.hit.adwebview.AdWebView
-import com.cmd.hit.adwebview.AdWebViewClient
+import com.cmd.hit.adwebview.adwebview.AdWebChromeClient
+import com.cmd.hit.adwebview.adwebview.AdWebView
+import com.cmd.hit.adwebview.adwebview.AdWebViewClient
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         // 开启 DOM storage API 功能
         settings.domStorageEnabled = true
         main_adwebview.webViewClient = AdWebViewClient()
-        main_adwebview.webChromeClient = AdWebChromClient()
+        main_adwebview.webChromeClient = AdWebChromeClient()
 
     }
 }

@@ -9,6 +9,7 @@ import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cmd.hit.main.Setting.SettingActivity;
 import com.cmd.hit.main.adapter.HeaderAndFooterWrapper;
 import com.cmd.hit.main.adapter.NewsAdapter;
+import com.cmd.hit.main.base.EventCenter;
 import com.cmd.hit.main.listener.RecyclerViewScrollListener;
 import com.cmd.hit.main.model.bean.BeforeNews;
 import com.cmd.hit.main.model.bean.DateBean;
@@ -35,10 +39,13 @@ import com.cmd.hit.main.model.dao.NewsDao;
 import com.cmd.hit.main.model.remote.ServiceCreator;
 import com.cmd.hit.main.model.remote.api.NewsService;
 import com.cmd.hit.main.model.repository.NewsRepository;
-import com.cmd.hit.main.other.PhotoCacheHelper;
-import com.cmd.hit.main.other.SPUtil;
+import com.cmd.hit.main.utils.PhotoCacheHelper;
+import com.cmd.hit.main.utils.SPUtil;
 import com.cmd.hit.main.view.ImageBannerFarmLayout;
+import com.cmd.hit.main.view.adlightwebpage.AdWebViewWidget;
+import com.cmd.hit.main.view.adwebcard.AdWebCardWidget;
 import com.cmd.hit.main.viewModel.MainViewModel;
+import com.cmd.hit.main.widget.WidgetManager;
 import com.google.android.material.navigation.NavigationView;
 
 import java.lang.ref.WeakReference;
@@ -68,10 +75,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //view
+    private CoordinatorLayout cl_mainContainer;
+    private FrameLayout fl_mainContainer;
     private ImageBannerFarmLayout mGroup;
     private TextView tv_offlineDownload;
     private NavigationView nav_headerView;
     private DrawerLayout drawer_layout;
+    private FrameLayout fl_widgetContainer;
 
     ActionBarDrawerToggle mDrawerToggle;
 
@@ -95,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
     private NewsAdapter newsAdapter;
     private Calendar currentDate = Calendar.getInstance();
     private HeaderAndFooterWrapper headerAndFooterWrapper;
+    private WidgetManager widgetManager;
+    private EventCenter eventCenter;
 
     //Handler
     MyHandler handler = new MyHandler(this);
@@ -156,13 +168,9 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         ImageBannerFarmLayout.WIDTH = dm.widthPixels;
+        float height = dm.heightPixels;
 
-        //侧滑栏头部
-        nav_headerView = findViewById(R.id.nav_header_view);
-        //侧滑栏
-        drawer_layout = findViewById(R.id.drawer_layout);
-        //离线下载按钮
-        tv_offlineDownload = nav_headerView.getHeaderView(0).findViewById(R.id.tv_offline_download);
+        initView();
 
         mDrawerToggle = new ActionBarDrawerToggle(this, drawer_layout, toolbar
                 ,R.string.abc_capital_on , R.string.abc_capital_off);
@@ -178,11 +186,43 @@ public class MainActivity extends AppCompatActivity {
         NewsRepository repository = new NewsRepository(dao, service);
         PhotoCacheHelper helper = new PhotoCacheHelper(this, handler);
         model = new MainViewModel(repository, helper);
+    }
 
+    private void initView() {
+        //主要容器
+        cl_mainContainer = findViewById(R.id.cl_main_container);
+        fl_mainContainer = findViewById(R.id.fl_main_container);
+        //侧滑栏头部
+        nav_headerView = findViewById(R.id.nav_header_view);
+        //侧滑栏
+        drawer_layout = findViewById(R.id.drawer_layout);
+        //离线下载按钮
+        tv_offlineDownload = nav_headerView.getHeaderView(0).findViewById(R.id.tv_offline_download);
+        //widget容器
+        fl_widgetContainer = findViewById(R.id.fl_widget_container);
+
+        //WebView
+        initWidget();
+
+        //recyclerView
+        initRecyclerView();
+    }
+
+    /**
+     * 初始化WebView
+     */
+    private void initWidget() {
+        eventCenter = EventCenter.create(new ViewModelProvider(this), this);
+        widgetManager = WidgetManager.of(this, fl_mainContainer);
+        widgetManager.setEventCenter(eventCenter);
+    }
+
+    private void initRecyclerView() {
         //初始化recyclerView
         newsListRecyclerView = findViewById(R.id.rv_home_list);
 
         newsAdapter = new NewsAdapter();
+        newsAdapter.setEventCenter(eventCenter);
 
         headerAndFooterWrapper = new HeaderAndFooterWrapper(newsAdapter);
 
@@ -192,14 +232,6 @@ public class MainActivity extends AppCompatActivity {
 
         newsListRecyclerView.setAdapter(headerAndFooterWrapper);
         newsListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        newsListRecyclerView.addOnScrollListener(new RecyclerViewScrollListener(){
-            @Override
-            public void onScrollToBottom() {
-                // 加载更多
-                addNewsToRecyclerView();
-            }
-        });
     }
 
     //设置事件监听
@@ -209,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"pos=" + pos, Toast.LENGTH_SHORT).show();
             NewsContentActivity.actionStart(mLatestNews.getTop_stories().get(pos).getId(), this);
         });
+
         //离线缓存点击事件
         tv_offlineDownload.setOnClickListener(v -> {
             //轮播新闻id
@@ -228,6 +261,15 @@ public class MainActivity extends AppCompatActivity {
             }
             requestNews(topNewsId, topNewsList);
             requestNews(newsId, newsList);
+        });
+
+        //滑动事件监听
+        newsListRecyclerView.addOnScrollListener(new RecyclerViewScrollListener(){
+            @Override
+            public void onScrollToBottom() {
+                // 加载更多
+                addNewsToRecyclerView();
+            }
         });
     }
 
@@ -303,6 +345,7 @@ public class MainActivity extends AppCompatActivity {
                             newsAdapter.addNews(news);
                             headerAndFooterWrapper.notifyItemChanged(newsList.size()-1);
                         }
+                        bindWidget();
                     }
 
                     @Override
@@ -315,7 +358,14 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+    }
 
+    /**
+     * 绑定组件
+     */
+    private void bindWidget() {
+        widgetManager.bind(R.id.fl_widget_container, new AdWebViewWidget());
+        widgetManager.bind(R.id.fl_widget_container, new AdWebCardWidget());
     }
 
     /**

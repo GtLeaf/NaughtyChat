@@ -1,4 +1,4 @@
-package com.cmd.hit.adwebview
+package com.cmd.hit.adwebview.adwebview
 
 object AdWebViewConstants {
     //自定义scheme name

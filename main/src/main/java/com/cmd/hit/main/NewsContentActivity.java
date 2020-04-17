@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -21,7 +20,7 @@ import com.cmd.hit.main.model.dao.NewsDao;
 import com.cmd.hit.main.model.remote.ServiceCreator;
 import com.cmd.hit.main.model.remote.api.NewsService;
 import com.cmd.hit.main.model.repository.NewsRepository;
-import com.cmd.hit.main.other.PhotoCacheHelper;
+import com.cmd.hit.main.utils.PhotoCacheHelper;
 import com.cmd.hit.main.viewModel.NewsContentViewModel;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 

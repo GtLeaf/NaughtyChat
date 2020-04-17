@@ -172,6 +172,9 @@ ext {
             jsbridge            : "com.github.lzyzsd:jsbridge:1.0.4",
 
             //本地缓存
-            disklrucache      : "com.jakewharton:disklrucache:2.0.2"
+            disklrucache        : "com.jakewharton:disklrucache:2.0.2",
+
+            //lifecycler
+            lifecycler_extensions   : "androidx.lifecycle:lifecycle-extensions:2.2.0"
     ]
 }

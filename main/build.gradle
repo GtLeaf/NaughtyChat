@@ -34,4 +34,5 @@ dependencies {
     annotationProcessor project.ext.dependencies.butterknife
 
     implementation project(':common')
+    implementation project(':adwebview')
 }

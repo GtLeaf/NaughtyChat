@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cmd.hit.main.bottomSheet;
+package com.cmd.hit.main.view.adlightwebpage.bottomSheet;
 
 import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 

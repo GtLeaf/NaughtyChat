@@ -13,8 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 
 
 import com.cmd.hit.main.R;
-import com.cmd.hit.main.other.PhotoCacheHelper;
-import com.cmd.hit.main.other.SPUtil;
+import com.cmd.hit.main.utils.PhotoCacheHelper;
+import com.cmd.hit.main.utils.SPUtil;
 
 import java.util.ArrayList;
 import java.util.List;
