@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="270dp"
     android:layout_height="147dp">
+
+    <com.cmd.hit.adwebview.adwebview.AdWebView
+        android:id="@+id/card_ad_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <ImageView
         android:id="@+id/iv_card_close"
         android:layout_width="40dp"

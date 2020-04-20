@@ -1,7 +1,6 @@
 package com.cmd.hit.main.view.adwebcard
 
 import android.graphics.Color
-import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import com.cmd.hit.main.base.EventData
@@ -55,7 +54,7 @@ class AdWebCardWidget : AbsAdWidget() {
 
     fun show() {
         moveOutFromScreen()
-        adWebCardView?.showCardView()
+        adWebCardView?.show()
         translationInScreen()
     }
 

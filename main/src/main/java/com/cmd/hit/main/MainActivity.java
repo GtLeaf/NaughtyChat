@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
     private void setListener(){
         //设置轮播图点击事件
         mGroup.setListener(pos -> {
-            Toast.makeText(this,"pos=" + pos, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"pos=" + pos, Toast.LENGTH_SHORT).show();
             NewsContentActivity.actionStart(mLatestNews.getTop_stories().get(pos).getId(), this);
         });
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="android.widget.FrameLayout">
+    <View
+        android:id="@+id/v_float_page_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/fl_web_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <com.cmd.hit.adwebview.adwebview.AdWebView
+            android:id="@+id/float_page_adwebview"
+            android:layout_width="280dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/iv_float_page_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|top"
+            android:src="@mipmap/icon_ad_card_close_rect" />
+    </FrameLayout>
+</merge>

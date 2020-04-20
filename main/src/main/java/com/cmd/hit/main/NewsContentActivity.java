@@ -21,6 +21,7 @@ import com.cmd.hit.main.model.remote.ServiceCreator;
 import com.cmd.hit.main.model.remote.api.NewsService;
 import com.cmd.hit.main.model.repository.NewsRepository;
 import com.cmd.hit.main.utils.PhotoCacheHelper;
+import com.cmd.hit.main.view.AdFloatWebPageView;
 import com.cmd.hit.main.viewModel.NewsContentViewModel;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
@@ -41,6 +42,7 @@ public class NewsContentActivity extends AppCompatActivity {
     private Toolbar tb_newsContent;
     private CollapsingToolbarLayout ctl_newsContent;
     private TextView tv_newsContentTitle;
+    private AdFloatWebPageView fwp_newContentPage;
 
     private NewsContentViewModel model;
 
@@ -61,16 +63,23 @@ public class NewsContentActivity extends AppCompatActivity {
     }
 
     private void init(){
+        initToolBar();
+
         wv_newsContent = findViewById(R.id.wv_news_content);
         iv_newsContentTitle = findViewById(R.id.iv_news_content_title);
         tb_newsContent = findViewById(R.id.tb_news_content);
         ctl_newsContent = findViewById(R.id.ctl_news_content);
         tv_newsContentTitle = findViewById(R.id.tv_news_content_title);
-        initToolBar();
+        initFloatWebPage();
 
         model = new NewsContentViewModel(new NewsRepository(new NewsDao()
                 , ServiceCreator.getInstance().create(NewsService.class)));
         setWebView();
+    }
+
+    private void initFloatWebPage() {
+        fwp_newContentPage = findViewById(R.id.fwp_new_content_page);
+        fwp_newContentPage.moveOutFromScreen();
     }
 
     private void setWebView(){
@@ -101,6 +110,8 @@ public class NewsContentActivity extends AppCompatActivity {
                                 , "utf-8", null);
                         tv_newsContentTitle.setText(news.getTitle());
                         PhotoCacheHelper.getInstance().loadBitmap(news.getImage(), iv_newsContentTitle);
+                        fwp_newContentPage.translationInScreen();
+                        fwp_newContentPage.loadUrl(null);
                     }
 
                     @Override
