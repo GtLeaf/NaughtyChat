@@ -13,8 +13,7 @@ import com.cmd.hit.adwebview.adwebview.AdWebViewConstants.HOST_INVOKE
 import com.cmd.hit.adwebview.adwebview.AdWebViewConstants.SCHEME
 import com.cmd.hit.adwebview.jsBridge.JsBridgeHandler
 
-class AdWebViewClient @JvmOverloads constructor(private val client: WebViewClient? = null) :
-    WebViewClient() {
+open class AdWebViewClient : WebViewClient() {
 
     var jsBridgeHandler: JsBridgeHandler? = null
     val TAG = "AdWebViewClient"

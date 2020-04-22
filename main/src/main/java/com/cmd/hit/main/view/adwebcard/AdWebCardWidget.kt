@@ -1,6 +1,8 @@
 package com.cmd.hit.main.view.adwebcard
 
 import android.graphics.Color
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
 import com.cmd.hit.main.base.EventData
@@ -11,6 +13,7 @@ import com.cmd.hit.main.widget.AbsAdWidget
 class AdWebCardWidget : AbsAdWidget() {
 
     var adWebCardView : AdWebCardView? = null
+    val handle = Handler(Looper.getMainLooper())
 
     private val toTransX: Float
         get() {
@@ -45,11 +48,16 @@ class AdWebCardWidget : AbsAdWidget() {
         }
 
         adWebCardView?.apply {
-            setBackgroundColor(Color.parseColor("#80000000"))
+            setBackgroundColor(Color.parseColor("#00000000"))
             alpha = 0f
             callback = webCardCallback
             hideCardView()
         }
+
+        handle.postDelayed(
+            {
+                show()
+            }, 3000L)
     }
 
     fun show() {
